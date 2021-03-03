@@ -78,13 +78,16 @@ sudo apt install mongodb mongo-tools
 
 As of Ubuntu 20.10 the mongodb package has been dropped from the official repos due to licensing, and thus a seperate PPA has to be added:
 ```
+wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+```
+and
+```
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
 ```
 Then update and install mongodb:
 ```
 sudo apt update && sudo apt install mongodb-org
 ```
-
 _note: if you have upgraded from earlier versions make sure to remove
 /var/lib/mongodb and /var/log/mongodb before the installation._
 
